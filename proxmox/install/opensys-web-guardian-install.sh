@@ -28,10 +28,12 @@ PANEL_PORT="${PANEL_PORT:-5001}"
 TZ="${TZ:-America/Sao_Paulo}"
 LICENSE_SERVER_URL="${LICENSE_SERVER_URL:-https://licensewg.opensys.com.br}"
 ADMIN_USER="${ADMIN_USER:-admin}"
+# P8 — nunca deixar CT em opensys-ui antigo (piloto 1.3.0). Bump com cada release canônica.
+OPENSYS_UI_MIN_VERSION="${OPENSYS_UI_MIN_VERSION:-1.4.9}"
 
 die() { echo "ERRO: $*" >&2; exit 1; }
-info() { echo "→ $*"; }
-ok() { echo "✓ $*"; }
+info() { echo "→ $*" >&2; }
+ok() { echo "✓ $*" >&2; }
 warn() { echo "AVISO: $*" >&2; }
 
 [[ "$(id -u)" -eq 0 ]] || die "execute como root"
@@ -42,6 +44,9 @@ fi
 
 export DEBIAN_FRONTEND=noninteractive
 export TZ
+# apt não interativo / sem prompts de config
+export APT_LISTCHANGES_FRONTEND=none
+export NEEDRESTART_MODE=a
 
 rand_hex() { openssl rand -hex "${1:-24}"; }
 rand_pass() { openssl rand -base64 18 | tr -d '/+=' | head -c 20; }
@@ -52,22 +57,43 @@ detect_ip() {
 
 download() {
   local url="$1" dest="$2"
+  info "download $url"
   if command -v curl >/dev/null 2>&1; then
-    curl -fsSL "$url" -o "$dest"
+    curl -fL --retry 3 --retry-delay 2 "$url" -o "$dest"
   else
-    wget -qO "$dest" "$url"
+    wget -O "$dest" "$url"
   fi
+}
+
+wait_apt_lock() {
+  local waited=0
+  while fuser /var/lib/dpkg/lock-frontend >/dev/null 2>&1 \
+     || fuser /var/lib/apt/lists/lock >/dev/null 2>&1 \
+     || fuser /var/lib/dpkg/lock >/dev/null 2>&1; do
+    if (( waited == 0 )); then
+      info "aguardando lock do apt (primeiro boot do Debian costuma atualizar sozinho)…"
+    fi
+    sleep 5
+    waited=$((waited + 5))
+    if (( waited >= 600 )); then
+      die "timeout 10 min esperando lock do apt — veja: ps aux | grep apt"
+    fi
+    if (( waited % 30 == 0 )); then
+      info "ainda aguardando apt lock… (${waited}s)"
+    fi
+  done
 }
 
 # --- 1. Base OS ---
 info "atualizando apt e pacotes base…"
-apt-get update -qq
-apt-get install -y -qq \
+wait_apt_lock
+apt-get update
+wait_apt_lock
+apt-get install -y \
   curl wget ca-certificates gnupg openssl \
   python3 python3-venv python3-pip \
-  acl sudo systemd \
-  clamav clamav-daemon clamav-freshclam \
-  >/dev/null
+  acl sudo systemd coreutils \
+  clamav clamav-daemon clamav-freshclam
 
 # --- 2. Buildkite keyring + sources ---
 info "registrando apt Buildkite (${ORG}/${REGISTRY})…"
@@ -90,13 +116,38 @@ Components: ${REPO_COMPONENTS}
 Signed-By: ${KEYRING}
 EOF
 
-apt-get update -qq || warn "apt update no registry OpenSys falhou — tentando continuar"
+wait_apt_lock
+apt-get update || warn "apt update no registry OpenSys falhou — tentando continuar"
 
 # --- 3. Pacotes produto ---
-info "instalando opensys-ui (e dependências)…"
-if ! apt-get install -y -qq opensys-ui; then
-  die "falha ao instalar opensys-ui do registry — verifique rede até packages.buildkite.com"
-fi
+install_opensys_ui_min() {
+  # P8: apt-get install opensys-ui sozinho pode pegar índice/cache antigo (ex.: 1.3.0).
+  info "instalando opensys-ui (mínimo ${OPENSYS_UI_MIN_VERSION})…"
+  wait_apt_lock
+  apt-mark unhold opensys-ui 2>/dev/null || true
+  wait_apt_lock
+  if ! apt-get install -y opensys-ui; then
+    die "falha ao instalar opensys-ui do registry — verifique rede até packages.buildkite.com"
+  fi
+  wait_apt_lock
+  apt-get install -y --only-upgrade opensys-ui || true
+  local ver
+  ver="$(dpkg-query -W -f='${Version}' opensys-ui 2>/dev/null || true)"
+  [[ -n "$ver" ]] || die "opensys-ui não ficou instalado"
+  if ! dpkg --compare-versions "$ver" ge "$OPENSYS_UI_MIN_VERSION"; then
+    # Tenta candidato explícito do cache
+    wait_apt_lock
+    apt-get update || true
+    wait_apt_lock
+    apt-get install -y --only-upgrade opensys-ui || true
+    ver="$(dpkg-query -W -f='${Version}' opensys-ui 2>/dev/null || true)"
+  fi
+  if ! dpkg --compare-versions "$ver" ge "$OPENSYS_UI_MIN_VERSION"; then
+    die "opensys-ui ${ver} < mínimo ${OPENSYS_UI_MIN_VERSION}. Publique/indexe a versão no Buildkite e rode apt-get update no CT."
+  fi
+  ok "opensys-ui ${ver} (≥ ${OPENSYS_UI_MIN_VERSION})"
+}
+install_opensys_ui_min
 
 install_e2guardian() {
   if apt-cache show opensys-e2guardian >/dev/null 2>&1; then
@@ -244,6 +295,60 @@ PY
   ok "policy seed (${n} grupos)"
 }
 ensure_policy_seed
+
+# P10 — listas *phraselist ausentes + filter0 inválido derrubam o proxy
+repair_e2g_lists_and_ipgroups() {
+  info "reparando listas de grupo / ipgroups (P10)…"
+  local lists=/etc/e2guardian/lists
+  local src=""
+  local cand dest f name need ipg
+  for cand in example.group group2.group group3.group; do
+    if [[ -f "${lists}/${cand}/bannedphraselist" && -f "${lists}/${cand}/weightedphraselist" ]]; then
+      src="${lists}/${cand}"
+      break
+    fi
+  done
+  if [[ -z "$src" ]]; then
+    warn "sem template de listas — pulando cópia (e2guardian pode falhar)"
+  else
+    for dest in "${lists}"/*.group; do
+      [[ -d "$dest" ]] || continue
+      [[ "$dest" -ef "$src" ]] && continue
+      while IFS= read -r -d '' f; do
+        name=$(basename "$f")
+        if [[ ! -e "${dest}/${name}" ]]; then
+          cp -a "$f" "${dest}/${name}"
+        fi
+      done < <(find "$src" -maxdepth 1 -type f -print0 2>/dev/null)
+      for need in bannedphraselist exceptionphraselist weightedphraselist; do
+        if [[ ! -f "${dest}/${need}" ]]; then
+          printf '# OpenSys scaffold %s\n' "$need" >"${dest}/${need}"
+        fi
+      done
+    done
+  fi
+  for ipg in \
+    "${lists}/authplugins/ipgroups" \
+    /etc/e2guardian/authplugins/ipgroups
+  do
+    [[ -f "$ipg" ]] || continue
+    sed -i -E 's/=filter0$/=filter1/g' "$ipg"
+    # Painel (user opensys) precisa ler/escrever — root:600 quebra /dashboard e /api/agent/policy
+    chown opensys:e2guardian "$ipg" 2>/dev/null || chown opensys:opensys "$ipg" 2>/dev/null || true
+    chmod 664 "$ipg" 2>/dev/null || true
+  done
+  mkdir -p "${lists}/authplugins"
+  chown -R e2guardian:e2guardian "${lists}" 2>/dev/null || true
+  chmod -R g+rwX "${lists}" 2>/dev/null || true
+  setfacl -R -m u:opensys:rwx /etc/e2guardian 2>/dev/null || true
+  for ipg in "${lists}/authplugins/ipgroups" /etc/e2guardian/authplugins/ipgroups; do
+    [[ -f "$ipg" ]] || continue
+    chown opensys:e2guardian "$ipg" 2>/dev/null || chown opensys:opensys "$ipg" || true
+    chmod 664 "$ipg" || true
+  done
+  ok "listas/ipgroups ok"
+}
+repair_e2g_lists_and_ipgroups
 
 # Category seed (Shallalist) — vem no .deb opensys-ui; se faltar, avisa
 if [[ -f "${SEED_DIR}/category-seed.tar.gz" ]]; then
@@ -447,6 +552,8 @@ systemctl daemon-reload
 systemctl enable clamav-daemon clamav-freshclam e2guardian opensys-ui opensys.target >/dev/null 2>&1 || true
 systemctl restart clamav-daemon || systemctl start clamav-daemon || warn "clamav-daemon não subiu ainda (freshclam pode estar baixando DB)"
 systemctl start clamav-freshclam || true
+# Reparo final antes de subir o filtro (seed pode ter corrido antes do pacote UI)
+repair_e2g_lists_and_ipgroups
 systemctl restart e2guardian || systemctl start e2guardian || warn "e2guardian falhou ao iniciar — confira journalctl -u e2guardian"
 systemctl restart opensys-ui || systemctl start opensys-ui || die "opensys-ui não iniciou"
 
@@ -457,6 +564,54 @@ if [[ "$HTTP_CODE" != "200" && "$HTTP_CODE" != "302" ]]; then
 else
   ok "painel HTTP ${HTTP_CODE} em :${PANEL_PORT}"
 fi
+
+# --- 10. Checklist pós-install (bugs piloto P1–P10) ---
+verify_pilot_accept() {
+  info "checklist pós-install…"
+  local ver fail=0
+  ver="$(dpkg-query -W -f='${Version}' opensys-ui 2>/dev/null || echo '?')"
+  if ! dpkg --compare-versions "$ver" ge "$OPENSYS_UI_MIN_VERSION"; then
+    warn "P8 FAIL: opensys-ui=${ver} < ${OPENSYS_UI_MIN_VERSION}"; fail=1
+  else
+    ok "P8 opensys-ui ${ver}"
+  fi
+  if [[ -x "${OPENSYS_ROOT}/bin/opensys-net" && -x "${OPENSYS_ROOT}/bin/opensys-logs" ]]; then
+    ok "P1 helpers opensys-net/logs"
+  else
+    warn "P1 FAIL: helpers ausentes em ${OPENSYS_ROOT}/bin"; fail=1
+  fi
+  if [[ -f /etc/sudoers.d/90-opensys-services ]]; then
+    ok "P5 sudoers 90-opensys-services"
+  else
+    warn "P5 FAIL: /etc/sudoers.d/90-opensys-services ausente"; fail=1
+  fi
+  if [[ -f "${OPENSYS_ROOT}/app/static/OpenWebFence.msi" ]]; then
+    ok "P6 MSI OpenWebFence embutido"
+  else
+    warn "P6 FAIL: MSI ausente em static/OpenWebFence.msi"; fail=1
+  fi
+  if [[ -f /etc/e2guardian/lists/example.group/bannedphraselist ]] \
+     || [[ -f /etc/e2guardian/lists/group2.group/bannedphraselist ]]; then
+    ok "P10 phraselist presente"
+  else
+    warn "P10 FAIL: bannedphraselist ausente nos grupos"; fail=1
+  fi
+  if systemctl is-active --quiet e2guardian; then
+    ok "e2guardian active"
+  else
+    warn "e2guardian NÃO está active — journalctl -u e2guardian -n 40"; fail=1
+  fi
+  if systemctl is-active --quiet opensys-ui; then
+    ok "opensys-ui active"
+  else
+    warn "opensys-ui NÃO está active"; fail=1
+  fi
+  if [[ "$fail" -ne 0 ]]; then
+    die "checklist pós-install falhou — corrija antes de entregar o CT ao cliente"
+  fi
+  ok "checklist P1–P10 OK"
+}
+verify_pilot_accept
 
 date -u +%Y-%m-%dT%H:%M:%SZ >"$FLAG"
 IP="$(detect_ip)"

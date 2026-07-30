@@ -200,6 +200,7 @@ CREATE_ARGS=(
   --rootfs "${STORAGE}:${DISK_GB}"
   --net0 "name=eth0,bridge=${BRIDGE},ip=dhcp"
   --unprivileged "$([[ "$PRIVILEGED" == "1" ]] && echo 0 || echo 1)"
+  --features nesting=1
   --onboot 1
   --start 0
   --description "OpenSys Web Guardian (native) — painel :${PANEL_PORT}"
@@ -241,7 +242,8 @@ info "enviando instalador para o CT…"
 pct push "$CTID" "$INSTALL_LOCAL" /root/opensys-web-guardian-install.sh
 pct exec "$CTID" -- chmod +x /root/opensys-web-guardian-install.sh
 
-info "instalando OpenSys Web Guardian dentro do CT (pode levar vários minutos)…"
+info "instalando OpenSys Web Guardian dentro do CT (pode levar 5–15 min; saída abaixo)…"
+# stdbuf: evita parecer “travado” quando pct exec não é TTY
 pct exec "$CTID" -- env \
   OPENSYS_REPO_RAW="$REPO_RAW" \
   OPENSYS_UPDATES_REGISTRY_ORG="${OPENSYS_UPDATES_REGISTRY_ORG:-darlanpicetti}" \
@@ -250,12 +252,13 @@ pct exec "$CTID" -- env \
   OPENSYS_UPDATES_REPO_SUITE="${OPENSYS_UPDATES_REPO_SUITE:-any}" \
   OPENSYS_UPDATES_REPO_COMPONENTS="${OPENSYS_UPDATES_REPO_COMPONENTS:-main}" \
   OPENSYS_UPDATES_REPO_KEYRING="${OPENSYS_UPDATES_REPO_KEYRING:-/usr/share/keyrings/opensys-buildkite-archive-keyring.gpg}" \
+  OPENSYS_UI_MIN_VERSION="${OPENSYS_UI_MIN_VERSION:-1.4.9}" \
   E2GUARDIAN_DEB_URL="${E2GUARDIAN_DEB_URL:-https://e2guardian.numsys.eu/v5.6/e2debian_bookworm_V5.6.1_20260330.deb}" \
   TZ="$TZ" \
   PANEL_PORT="$PANEL_PORT" \
   LICENSE_SERVER_URL="$LICENSE_SERVER_URL" \
   UI_BASE_URL_HINT="${GUEST_IP:+http://${GUEST_IP}:${PANEL_PORT}}" \
-  bash /root/opensys-web-guardian-install.sh
+  stdbuf -oL -eL bash /root/opensys-web-guardian-install.sh
 
 # re-lê IP após install (rede estável)
 GUEST_IP="$(pct exec "$CTID" -- bash -c 'hostname -I 2>/dev/null | awk "{print \$1}"' 2>/dev/null || true)"
