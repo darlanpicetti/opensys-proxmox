@@ -29,7 +29,7 @@ TZ="${TZ:-America/Sao_Paulo}"
 LICENSE_SERVER_URL="${LICENSE_SERVER_URL:-https://licensewg.opensys.com.br}"
 ADMIN_USER="${ADMIN_USER:-admin}"
 # P8 — nunca deixar CT em opensys-ui antigo (piloto 1.3.0). Bump com cada release canônica.
-OPENSYS_UI_MIN_VERSION="${OPENSYS_UI_MIN_VERSION:-1.4.9}"
+OPENSYS_UI_MIN_VERSION="${OPENSYS_UI_MIN_VERSION:-1.4.10}"
 
 die() { echo "ERRO: $*" >&2; exit 1; }
 info() { echo "→ $*" >&2; }
@@ -332,7 +332,7 @@ repair_e2g_lists_and_ipgroups() {
     /etc/e2guardian/authplugins/ipgroups
   do
     [[ -f "$ipg" ]] || continue
-    sed -i -E 's/=filter0$/=filter1/g' "$ipg"
+    # NÃO remapear filter0→filter1: filter0 = Sem proxy (BYPASS_GROUP_ID) no painel.
     # Painel (user opensys) precisa ler/escrever — root:600 quebra /dashboard e /api/agent/policy
     chown opensys:e2guardian "$ipg" 2>/dev/null || chown opensys:opensys "$ipg" 2>/dev/null || true
     chmod 664 "$ipg" 2>/dev/null || true
