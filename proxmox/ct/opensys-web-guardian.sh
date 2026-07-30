@@ -135,31 +135,60 @@ prompt_if_tty
 pct status "$CTID" >/dev/null 2>&1 && die "CT $CTID já existe"
 
 ensure_template() {
-  local tpl="$OSTEMPLATE"
-  local volid="${TEMPLATE_STORAGE}:vztmpl/${tpl}"
-  if pveam list "$TEMPLATE_STORAGE" 2>/dev/null | grep -qF "$tpl"; then
-    ok "template presente: $volid"
-    echo "$volid"
-    return
+  local tpl="${OSTEMPLATE:-}"
+  local volid=""
+  local found=""
+
+  # Se o pin não existir no storage, resolve o debian-12 amd64 mais recente disponível
+  resolve_latest_debian12() {
+    pveam available --section system 2>/dev/null \
+      | awk '/debian-12-standard.*amd64\.tar\.zst/ {print $NF}' \
+      | sort -V \
+      | tail -1
+  }
+
+  if [[ -n "$tpl" ]] && pveam list "$TEMPLATE_STORAGE" 2>/dev/null | grep -qF "$tpl"; then
+    volid="${TEMPLATE_STORAGE}:vztmpl/${tpl}"
+    ok "template presente: $volid" >&2
+    printf '%s\n' "$volid"
+    return 0
   fi
-  info "baixando template Debian 12 em $TEMPLATE_STORAGE…"
-  # Lista remota e escolhe bookworm/debian-12 amd64 mais recente se o pin falhar
-  if ! pveam download "$TEMPLATE_STORAGE" "$tpl"; then
-    warn "download de $tpl falhou — tentando descobrir template debian-12…"
-    local found
-    found="$(pveam available --section system 2>/dev/null | awk '/debian-12.*amd64/ {print $2}' | tail -1 || true)"
-    [[ -n "$found" ]] || die "não foi possível baixar template Debian 12 — rode: pveam update && pveam available"
-    info "usando $found"
-    pveam download "$TEMPLATE_STORAGE" "$found"
+
+  if [[ -z "$tpl" ]] || ! pveam list "$TEMPLATE_STORAGE" 2>/dev/null | grep -qF "$tpl"; then
+    found="$(resolve_latest_debian12 || true)"
+    if [[ -n "$found" ]]; then
+      tpl="$found"
+    fi
+  fi
+  [[ -n "$tpl" ]] || die "não encontrou template debian-12 — rode: pveam update && pveam available"
+
+  volid="${TEMPLATE_STORAGE}:vztmpl/${tpl}"
+  if pveam list "$TEMPLATE_STORAGE" 2>/dev/null | grep -qF "$tpl"; then
+    ok "template presente: $volid" >&2
+    printf '%s\n' "$volid"
+    return 0
+  fi
+
+  info "baixando template $tpl em $TEMPLATE_STORAGE…"
+  # Importante: progresso do pveam NÃO pode ir para stdout (sujaria TEMPLATE_VOL)
+  if ! pveam download "$TEMPLATE_STORAGE" "$tpl" >&2; then
+    found="$(resolve_latest_debian12 || true)"
+    [[ -n "$found" ]] || die "falha ao baixar template — rode: pveam update && pveam available"
     tpl="$found"
     volid="${TEMPLATE_STORAGE}:vztmpl/${tpl}"
+    info "tentando $tpl…"
+    pveam download "$TEMPLATE_STORAGE" "$tpl" >&2 || die "falha ao baixar $tpl"
   fi
-  ok "template: $volid"
-  echo "$volid"
+  ok "template: $volid" >&2
+  printf '%s\n' "$volid"
 }
 
 TEMPLATE_VOL="$(ensure_template)"
-
+# Sanitiza: só a última linha no formato storage:vztmpl/arquivo
+TEMPLATE_VOL="$(printf '%s\n' "$TEMPLATE_VOL" | tr -d '\r' | grep -E '^[A-Za-z0-9_-]+:vztmpl/' | tail -1)"
+[[ -n "$TEMPLATE_VOL" ]] || die "ostemplate inválido após ensure_template"
+[[ ${#TEMPLATE_VOL} -le 255 ]] || die "ostemplate longo demais (${#TEMPLATE_VOL}): $TEMPLATE_VOL"
+info "ostemplate=$TEMPLATE_VOL"
 info "criando CT $CTID ($HOSTNAME) — privileged=$PRIVILEGED …"
 CREATE_ARGS=(
   "$CTID"
