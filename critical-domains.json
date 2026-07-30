@@ -1,0 +1,337 @@
+[
+  {
+    "section": "Bancos digitais",
+    "apps": [
+      {
+        "key": "bancopan",
+        "name": "Banco Pan",
+        "domains": [
+          "bancopan.com.br"
+        ]
+      },
+      {
+        "key": "c6bank",
+        "name": "C6 Bank",
+        "domains": [
+          "c6bank.com.br"
+        ]
+      },
+      {
+        "key": "inter",
+        "name": "Banco Inter",
+        "domains": [
+          "bancointer.com.br",
+          "inter.co"
+        ]
+      },
+      {
+        "key": "neon",
+        "name": "Neon",
+        "domains": [
+          "neon.com.br"
+        ]
+      },
+      {
+        "key": "next",
+        "name": "Next (Bradesco)",
+        "domains": [
+          "next.me"
+        ]
+      },
+      {
+        "key": "nubank",
+        "name": "Nubank",
+        "domains": [
+          "nubank.com.br"
+        ]
+      },
+      {
+        "key": "pagbank",
+        "name": "PagBank/PagSeguro",
+        "domains": [
+          "pagseguro.uol.com.br",
+          "pagbank.com.br"
+        ]
+      },
+      {
+        "key": "willbank",
+        "name": "Will Bank",
+        "domains": [
+          "willbank.com.br"
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Bancos tradicionais",
+    "apps": [
+      {
+        "key": "banrisul",
+        "name": "Banrisul",
+        "domains": [
+          "banrisul.com.br"
+        ]
+      },
+      {
+        "key": "bb",
+        "name": "Banco do Brasil",
+        "domains": [
+          "bb.com.br",
+          "aapj.bb.com.br"
+        ]
+      },
+      {
+        "key": "bradesco",
+        "name": "Bradesco",
+        "domains": [
+          "bradesco.com.br"
+        ]
+      },
+      {
+        "key": "btgpactual",
+        "name": "BTG Pactual",
+        "domains": [
+          "btgpactual.com"
+        ]
+      },
+      {
+        "key": "caixa",
+        "name": "Caixa",
+        "domains": [
+          "caixa.gov.br",
+          "caixa.com.br"
+        ]
+      },
+      {
+        "key": "itau",
+        "name": "Itaú",
+        "domains": [
+          "itau.com.br",
+          "itau-unibanco.com.br",
+          "banklineplus.itau.com.br"
+        ]
+      },
+      {
+        "key": "original",
+        "name": "Banco Original",
+        "domains": [
+          "original.com.br"
+        ]
+      },
+      {
+        "key": "safra",
+        "name": "Safra",
+        "domains": [
+          "safra.com.br"
+        ]
+      },
+      {
+        "key": "santander",
+        "name": "Santander",
+        "domains": [
+          "santander.com.br"
+        ]
+      },
+      {
+        "key": "sicoob",
+        "name": "Sicoob",
+        "domains": [
+          "sicoob.com.br"
+        ]
+      },
+      {
+        "key": "sicredi",
+        "name": "Sicredi",
+        "domains": [
+          "sicredi.com.br"
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Governo e serviços públicos",
+    "apps": [
+      {
+        "key": "govbr_login",
+        "name": "Login Gov.br",
+        "domains": [
+          "gov.br",
+          "sso.acesso.gov.br",
+          "acesso.gov.br"
+        ]
+      },
+      {
+        "key": "inss",
+        "name": "INSS",
+        "domains": [
+          "gov.br",
+          "meu.inss.gov.br"
+        ]
+      },
+      {
+        "key": "receita_federal",
+        "name": "Receita Federal",
+        "domains": [
+          "gov.br",
+          "servicos.receita.fazenda.gov.br",
+          "cav.receita.fazenda.gov.br"
+        ]
+      },
+      {
+        "key": "correios",
+        "name": "Correios",
+        "domains": [
+          "correios.com.br"
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Mensageria",
+    "apps": [
+      {
+        "key": "whatsapp",
+        "name": "WhatsApp (Web e Desktop)",
+        "domains": [
+          "whatsapp.com",
+          "whatsapp.net",
+          "web.whatsapp.com",
+          "graph.facebook.com",
+          "lookaside.fbsbx.com"
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Microsoft 365 / Windows",
+    "apps": [
+      {
+        "key": "ms_login",
+        "name": "Login Microsoft (autenticação)",
+        "domains": [
+          "login.microsoftonline.com",
+          "login.windows.net",
+          "login.microsoft.com",
+          "login.live.com",
+          "autologon.microsoftazuread-sso.com",
+          "device.login.microsoftonline.com"
+        ]
+      },
+      {
+        "key": "windows_update",
+        "name": "Windows Update",
+        "domains": [
+          "windowsupdate.com",
+          "download.windowsupdate.com",
+          "delivery.mp.microsoft.com"
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Pagamentos e bandeiras",
+    "apps": [
+      {
+        "key": "amex",
+        "name": "American Express",
+        "domains": [
+          "americanexpress.com"
+        ]
+      },
+      {
+        "key": "cielo",
+        "name": "Cielo",
+        "domains": [
+          "cielo.com.br"
+        ]
+      },
+      {
+        "key": "elo",
+        "name": "Elo",
+        "domains": [
+          "elo.com.br"
+        ]
+      },
+      {
+        "key": "getnet",
+        "name": "GetNet",
+        "domains": [
+          "getnet.com.br"
+        ]
+      },
+      {
+        "key": "hipercard",
+        "name": "Hipercard",
+        "domains": [
+          "hipercard.com.br"
+        ]
+      },
+      {
+        "key": "mastercard",
+        "name": "Mastercard",
+        "domains": [
+          "mastercard.com",
+          "mastercard.com.br"
+        ]
+      },
+      {
+        "key": "mercadopago",
+        "name": "Mercado Pago",
+        "domains": [
+          "mercadopago.com.br",
+          "mercadolivre.com"
+        ]
+      },
+      {
+        "key": "paypal",
+        "name": "PayPal",
+        "domains": [
+          "paypal.com",
+          "paypalobjects.com"
+        ]
+      },
+      {
+        "key": "picpay",
+        "name": "PicPay",
+        "domains": [
+          "picpay.com"
+        ]
+      },
+      {
+        "key": "stone",
+        "name": "Stone",
+        "domains": [
+          "stone.com.br"
+        ]
+      },
+      {
+        "key": "visa",
+        "name": "Visa",
+        "domains": [
+          "visa.com",
+          "visa.com.br"
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Validação de certificados (CA/OCSP)",
+    "apps": [
+      {
+        "key": "cert_validation",
+        "name": "OCSP/CRL (DigiCert, GlobalSign, Microsoft)",
+        "domains": [
+          "ocsp.digicert.com",
+          "crl3.digicert.com",
+          "crl4.digicert.com",
+          "cacerts.digicert.com",
+          "ocsp.globalsign.com",
+          "crl.globalsign.com",
+          "ocsp.msocsp.com",
+          "crl.microsoft.com",
+          "oneocsp.microsoft.com"
+        ]
+      }
+    ]
+  }
+]

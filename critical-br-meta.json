@@ -1,0 +1,1838 @@
+{
+  "catalog_version": "2026.07.17",
+  "institution_count": 38,
+  "domain_count": 72,
+  "institutions": {
+    "amex": {
+      "name": "American Express",
+      "institution_category": "bandeira",
+      "section": "Pagamentos e bandeiras",
+      "domain_count": 1,
+      "exported_domains": [
+        "americanexpress.com"
+      ],
+      "pac_scopes": [
+        ".americanexpress.com"
+      ],
+      "domains": {
+        "americanexpress.com": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.americanexpress.com/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "bancopan": {
+      "name": "Banco Pan",
+      "institution_category": "banco_digital",
+      "section": "Bancos digitais",
+      "domain_count": 1,
+      "exported_domains": [
+        "bancopan.com.br"
+      ],
+      "pac_scopes": [
+        ".bancopan.com.br"
+      ],
+      "domains": {
+        "bancopan.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.bancopan.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "banrisul": {
+      "name": "Banrisul",
+      "institution_category": "banco_tradicional",
+      "section": "Bancos tradicionais",
+      "domain_count": 1,
+      "exported_domains": [
+        "banrisul.com.br"
+      ],
+      "pac_scopes": [
+        ".banrisul.com.br"
+      ],
+      "domains": {
+        "banrisul.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.banrisul.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "bb": {
+      "name": "Banco do Brasil",
+      "institution_category": "banco_publico",
+      "section": "Bancos tradicionais",
+      "domain_count": 2,
+      "exported_domains": [
+        "bb.com.br",
+        "aapj.bb.com.br"
+      ],
+      "pac_scopes": [
+        ".bb.com.br"
+      ],
+      "domains": {
+        "bb.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.bb.com.br/"
+          ],
+          "approved": false
+        },
+        "aapj.bb.com.br": {
+          "category": "internet_banking",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://aapj.bb.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "opensys",
+      "catalog_version": "2026.07.17"
+    },
+    "bradesco": {
+      "name": "Bradesco",
+      "institution_category": "banco_tradicional",
+      "section": "Bancos tradicionais",
+      "domain_count": 1,
+      "exported_domains": [
+        "bradesco.com.br"
+      ],
+      "pac_scopes": [
+        ".bradesco.com.br"
+      ],
+      "domains": {
+        "bradesco.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.bradesco.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "opensys",
+      "catalog_version": "2026.07.17"
+    },
+    "btgpactual": {
+      "name": "BTG Pactual",
+      "institution_category": "banco_tradicional",
+      "section": "Bancos tradicionais",
+      "domain_count": 1,
+      "exported_domains": [
+        "btgpactual.com"
+      ],
+      "pac_scopes": [
+        ".btgpactual.com"
+      ],
+      "domains": {
+        "btgpactual.com": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.btgpactual.com/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "c6bank": {
+      "name": "C6 Bank",
+      "institution_category": "banco_digital",
+      "section": "Bancos digitais",
+      "domain_count": 1,
+      "exported_domains": [
+        "c6bank.com.br"
+      ],
+      "pac_scopes": [
+        ".c6bank.com.br"
+      ],
+      "domains": {
+        "c6bank.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.c6bank.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "caixa": {
+      "name": "Caixa",
+      "institution_category": "banco_publico",
+      "section": "Bancos tradicionais",
+      "domain_count": 2,
+      "exported_domains": [
+        "caixa.gov.br",
+        "caixa.com.br"
+      ],
+      "pac_scopes": [
+        ".caixa.gov.br",
+        ".caixa.com.br"
+      ],
+      "domains": {
+        "caixa.gov.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.caixa.gov.br/"
+          ],
+          "approved": false
+        },
+        "caixa.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.caixa.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "opensys",
+      "catalog_version": "2026.07.17"
+    },
+    "cielo": {
+      "name": "Cielo",
+      "institution_category": "adquirente",
+      "section": "Pagamentos e bandeiras",
+      "domain_count": 1,
+      "exported_domains": [
+        "cielo.com.br"
+      ],
+      "pac_scopes": [
+        ".cielo.com.br"
+      ],
+      "domains": {
+        "cielo.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.cielo.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "elo": {
+      "name": "Elo",
+      "institution_category": "bandeira",
+      "section": "Pagamentos e bandeiras",
+      "domain_count": 1,
+      "exported_domains": [
+        "elo.com.br"
+      ],
+      "pac_scopes": [
+        ".elo.com.br"
+      ],
+      "domains": {
+        "elo.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.elo.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "getnet": {
+      "name": "GetNet",
+      "institution_category": "adquirente",
+      "section": "Pagamentos e bandeiras",
+      "domain_count": 1,
+      "exported_domains": [
+        "getnet.com.br"
+      ],
+      "pac_scopes": [
+        ".getnet.com.br"
+      ],
+      "domains": {
+        "getnet.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.getnet.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "hipercard": {
+      "name": "Hipercard",
+      "institution_category": "bandeira",
+      "section": "Pagamentos e bandeiras",
+      "domain_count": 1,
+      "exported_domains": [
+        "hipercard.com.br"
+      ],
+      "pac_scopes": [
+        ".hipercard.com.br"
+      ],
+      "domains": {
+        "hipercard.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.hipercard.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "inter": {
+      "name": "Banco Inter",
+      "institution_category": "banco_digital",
+      "section": "Bancos digitais",
+      "domain_count": 2,
+      "exported_domains": [
+        "bancointer.com.br",
+        "inter.co"
+      ],
+      "pac_scopes": [
+        ".bancointer.com.br",
+        ".inter.co"
+      ],
+      "domains": {
+        "bancointer.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.bancointer.com.br/"
+          ],
+          "approved": false
+        },
+        "inter.co": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://inter.co/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "opensys",
+      "catalog_version": "2026.07.17"
+    },
+    "itau": {
+      "name": "Itaú",
+      "institution_category": "banco_tradicional",
+      "section": "Bancos tradicionais",
+      "domain_count": 3,
+      "exported_domains": [
+        "itau.com.br",
+        "itau-unibanco.com.br",
+        "banklineplus.itau.com.br"
+      ],
+      "pac_scopes": [
+        ".itau.com.br",
+        ".itau-unibanco.com.br"
+      ],
+      "domains": {
+        "itau.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website",
+            "public_docs"
+          ],
+          "source_refs": [
+            "https://www.itau.com.br/",
+            "https://www.itau.com.br/seguranca"
+          ],
+          "approved": false
+        },
+        "itau-unibanco.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.itau-unibanco.com.br/"
+          ],
+          "approved": false
+        },
+        "banklineplus.itau.com.br": {
+          "category": "internet_banking",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://banklineplus.itau.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "opensys",
+      "catalog_version": "2026.07.17"
+    },
+    "mastercard": {
+      "name": "Mastercard",
+      "institution_category": "bandeira",
+      "section": "Pagamentos e bandeiras",
+      "domain_count": 2,
+      "exported_domains": [
+        "mastercard.com",
+        "mastercard.com.br"
+      ],
+      "pac_scopes": [
+        ".mastercard.com",
+        ".mastercard.com.br"
+      ],
+      "domains": {
+        "mastercard.com": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.mastercard.com/"
+          ],
+          "approved": false
+        },
+        "mastercard.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.mastercard.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "mercadopago": {
+      "name": "Mercado Pago",
+      "institution_category": "pagamentos",
+      "section": "Pagamentos e bandeiras",
+      "domain_count": 2,
+      "exported_domains": [
+        "mercadopago.com.br",
+        "mercadolivre.com"
+      ],
+      "pac_scopes": [
+        ".mercadopago.com.br",
+        ".mercadolivre.com"
+      ],
+      "domains": {
+        "mercadopago.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.mercadopago.com.br/"
+          ],
+          "approved": false
+        },
+        "mercadolivre.com": {
+          "category": "related",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.mercadolivre.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "neon": {
+      "name": "Neon",
+      "institution_category": "banco_digital",
+      "section": "Bancos digitais",
+      "domain_count": 1,
+      "exported_domains": [
+        "neon.com.br"
+      ],
+      "pac_scopes": [
+        ".neon.com.br"
+      ],
+      "domains": {
+        "neon.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://neon.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "next": {
+      "name": "Next (Bradesco)",
+      "institution_category": "banco_digital",
+      "section": "Bancos digitais",
+      "domain_count": 1,
+      "exported_domains": [
+        "next.me"
+      ],
+      "pac_scopes": [
+        ".next.me"
+      ],
+      "domains": {
+        "next.me": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://next.me/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "nubank": {
+      "name": "Nubank",
+      "institution_category": "banco_digital",
+      "section": "Bancos digitais",
+      "domain_count": 1,
+      "exported_domains": [
+        "nubank.com.br"
+      ],
+      "pac_scopes": [
+        ".nubank.com.br"
+      ],
+      "domains": {
+        "nubank.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://nubank.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "opensys",
+      "catalog_version": "2026.07.17"
+    },
+    "original": {
+      "name": "Banco Original",
+      "institution_category": "banco_tradicional",
+      "section": "Bancos tradicionais",
+      "domain_count": 1,
+      "exported_domains": [
+        "original.com.br"
+      ],
+      "pac_scopes": [
+        ".original.com.br"
+      ],
+      "domains": {
+        "original.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.original.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "pagbank": {
+      "name": "PagBank/PagSeguro",
+      "institution_category": "pagamentos",
+      "section": "Bancos digitais",
+      "domain_count": 2,
+      "exported_domains": [
+        "pagseguro.uol.com.br",
+        "pagbank.com.br"
+      ],
+      "pac_scopes": [
+        ".pagseguro.uol.com.br",
+        ".pagbank.com.br"
+      ],
+      "domains": {
+        "pagseguro.uol.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://pagseguro.uol.com.br/"
+          ],
+          "approved": false
+        },
+        "pagbank.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://pagbank.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "paypal": {
+      "name": "PayPal",
+      "institution_category": "pagamentos",
+      "section": "Pagamentos e bandeiras",
+      "domain_count": 2,
+      "exported_domains": [
+        "paypal.com",
+        "paypalobjects.com"
+      ],
+      "pac_scopes": [
+        ".paypal.com",
+        ".paypalobjects.com"
+      ],
+      "domains": {
+        "paypal.com": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.paypal.com/"
+          ],
+          "approved": false
+        },
+        "paypalobjects.com": {
+          "category": "cdn",
+          "confidence": "HIGH",
+          "sources": [
+            "public_docs"
+          ],
+          "source_refs": [
+            "https://developer.paypal.com/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "picpay": {
+      "name": "PicPay",
+      "institution_category": "pagamentos",
+      "section": "Pagamentos e bandeiras",
+      "domain_count": 1,
+      "exported_domains": [
+        "picpay.com"
+      ],
+      "pac_scopes": [
+        ".picpay.com"
+      ],
+      "domains": {
+        "picpay.com": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://picpay.com/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "safra": {
+      "name": "Safra",
+      "institution_category": "banco_tradicional",
+      "section": "Bancos tradicionais",
+      "domain_count": 1,
+      "exported_domains": [
+        "safra.com.br"
+      ],
+      "pac_scopes": [
+        ".safra.com.br"
+      ],
+      "domains": {
+        "safra.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.safra.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "santander": {
+      "name": "Santander",
+      "institution_category": "banco_tradicional",
+      "section": "Bancos tradicionais",
+      "domain_count": 1,
+      "exported_domains": [
+        "santander.com.br"
+      ],
+      "pac_scopes": [
+        ".santander.com.br"
+      ],
+      "domains": {
+        "santander.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.santander.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "opensys",
+      "catalog_version": "2026.07.17"
+    },
+    "sicoob": {
+      "name": "Sicoob",
+      "institution_category": "cooperativa",
+      "section": "Bancos tradicionais",
+      "domain_count": 1,
+      "exported_domains": [
+        "sicoob.com.br"
+      ],
+      "pac_scopes": [
+        ".sicoob.com.br"
+      ],
+      "domains": {
+        "sicoob.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.sicoob.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "sicredi": {
+      "name": "Sicredi",
+      "institution_category": "cooperativa",
+      "section": "Bancos tradicionais",
+      "domain_count": 1,
+      "exported_domains": [
+        "sicredi.com.br"
+      ],
+      "pac_scopes": [
+        ".sicredi.com.br"
+      ],
+      "domains": {
+        "sicredi.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.sicredi.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "stone": {
+      "name": "Stone",
+      "institution_category": "pagamentos",
+      "section": "Pagamentos e bandeiras",
+      "domain_count": 1,
+      "exported_domains": [
+        "stone.com.br"
+      ],
+      "pac_scopes": [
+        ".stone.com.br"
+      ],
+      "domains": {
+        "stone.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.stone.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "visa": {
+      "name": "Visa",
+      "institution_category": "bandeira",
+      "section": "Pagamentos e bandeiras",
+      "domain_count": 2,
+      "exported_domains": [
+        "visa.com",
+        "visa.com.br"
+      ],
+      "pac_scopes": [
+        ".visa.com",
+        ".visa.com.br"
+      ],
+      "domains": {
+        "visa.com": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.visa.com/"
+          ],
+          "approved": false
+        },
+        "visa.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.visa.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "willbank": {
+      "name": "Will Bank",
+      "institution_category": "banco_digital",
+      "section": "Bancos digitais",
+      "domain_count": 1,
+      "exported_domains": [
+        "willbank.com.br"
+      ],
+      "pac_scopes": [
+        ".willbank.com.br"
+      ],
+      "domains": {
+        "willbank.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.willbank.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "govbr_login": {
+      "name": "Login Gov.br",
+      "institution_category": "identidade_digital",
+      "section": "Governo e serviços públicos",
+      "domain_count": 3,
+      "exported_domains": [
+        "gov.br",
+        "sso.acesso.gov.br",
+        "acesso.gov.br"
+      ],
+      "pac_scopes": [
+        ".gov.br"
+      ],
+      "domains": {
+        "gov.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://www.gov.br/governodigital/pt-br/identidade/conta-gov-br"
+          ],
+          "approved": false
+        },
+        "sso.acesso.gov.br": {
+          "category": "auth",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://www.gov.br/governodigital/pt-br/identidade/conta-gov-br"
+          ],
+          "approved": false
+        },
+        "acesso.gov.br": {
+          "category": "auth",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://www.gov.br/governodigital/pt-br/identidade/conta-gov-br"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "opensys",
+      "catalog_version": "2026.07.17"
+    },
+    "inss": {
+      "name": "INSS",
+      "institution_category": "governo_federal",
+      "section": "Governo e serviços públicos",
+      "domain_count": 2,
+      "exported_domains": [
+        "gov.br",
+        "meu.inss.gov.br"
+      ],
+      "pac_scopes": [
+        ".gov.br"
+      ],
+      "domains": {
+        "gov.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.gov.br/inss/"
+          ],
+          "approved": false
+        },
+        "meu.inss.gov.br": {
+          "category": "servico",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://meu.inss.gov.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "opensys",
+      "catalog_version": "2026.07.17"
+    },
+    "receita_federal": {
+      "name": "Receita Federal",
+      "institution_category": "governo_federal",
+      "section": "Governo e serviços públicos",
+      "domain_count": 3,
+      "exported_domains": [
+        "gov.br",
+        "servicos.receita.fazenda.gov.br",
+        "cav.receita.fazenda.gov.br"
+      ],
+      "pac_scopes": [
+        ".gov.br"
+      ],
+      "domains": {
+        "gov.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.gov.br/receitafederal/"
+          ],
+          "approved": false
+        },
+        "servicos.receita.fazenda.gov.br": {
+          "category": "servico",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.gov.br/receitafederal/"
+          ],
+          "approved": false
+        },
+        "cav.receita.fazenda.gov.br": {
+          "category": "servico",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.gov.br/receitafederal/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "opensys",
+      "catalog_version": "2026.07.17"
+    },
+    "correios": {
+      "name": "Correios",
+      "institution_category": "servico_essencial",
+      "section": "Governo e serviços públicos",
+      "domain_count": 1,
+      "exported_domains": [
+        "correios.com.br"
+      ],
+      "pac_scopes": [
+        ".correios.com.br"
+      ],
+      "domains": {
+        "correios.com.br": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "institutional_website"
+          ],
+          "source_refs": [
+            "https://www.correios.com.br/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "opensys",
+      "catalog_version": "2026.07.17"
+    },
+    "whatsapp": {
+      "name": "WhatsApp (Web e Desktop)",
+      "institution_category": "mensageria",
+      "section": "Mensageria",
+      "domain_count": 5,
+      "exported_domains": [
+        "whatsapp.com",
+        "whatsapp.net",
+        "web.whatsapp.com",
+        "graph.facebook.com",
+        "lookaside.fbsbx.com"
+      ],
+      "pac_scopes": [
+        ".whatsapp.com",
+        ".whatsapp.net"
+      ],
+      "domains": {
+        "whatsapp.com": {
+          "category": "portal",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://www.whatsapp.com/"
+          ],
+          "approved": false
+        },
+        "whatsapp.net": {
+          "category": "infra",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://developers.facebook.com/docs/whatsapp/"
+          ],
+          "approved": false
+        },
+        "web.whatsapp.com": {
+          "category": "web_client",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://web.whatsapp.com/"
+          ],
+          "approved": false
+        },
+        "graph.facebook.com": {
+          "category": "api",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://developers.facebook.com/docs/whatsapp/on-premises/"
+          ],
+          "approved": false
+        },
+        "lookaside.fbsbx.com": {
+          "category": "cdn",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://developers.facebook.com/docs/whatsapp/on-premises/"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "cert_validation": {
+      "name": "OCSP/CRL (DigiCert, GlobalSign, Microsoft)",
+      "institution_category": "cert_validation",
+      "section": "Validação de certificados (CA/OCSP)",
+      "domain_count": 9,
+      "exported_domains": [
+        "ocsp.digicert.com",
+        "crl3.digicert.com",
+        "crl4.digicert.com",
+        "cacerts.digicert.com",
+        "ocsp.globalsign.com",
+        "crl.globalsign.com",
+        "ocsp.msocsp.com",
+        "crl.microsoft.com",
+        "oneocsp.microsoft.com"
+      ],
+      "pac_scopes": [],
+      "domains": {
+        "ocsp.digicert.com": {
+          "category": "ocsp",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges"
+          ],
+          "approved": false
+        },
+        "crl3.digicert.com": {
+          "category": "crl",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges"
+          ],
+          "approved": false
+        },
+        "crl4.digicert.com": {
+          "category": "crl",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges"
+          ],
+          "approved": false
+        },
+        "cacerts.digicert.com": {
+          "category": "ca",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges"
+          ],
+          "approved": false
+        },
+        "ocsp.globalsign.com": {
+          "category": "ocsp",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges"
+          ],
+          "approved": false
+        },
+        "crl.globalsign.com": {
+          "category": "crl",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges"
+          ],
+          "approved": false
+        },
+        "ocsp.msocsp.com": {
+          "category": "ocsp",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges"
+          ],
+          "approved": false
+        },
+        "crl.microsoft.com": {
+          "category": "crl",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges"
+          ],
+          "approved": false
+        },
+        "oneocsp.microsoft.com": {
+          "category": "ocsp",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "ms_login": {
+      "name": "Login Microsoft (autenticação)",
+      "institution_category": "infra_microsoft",
+      "section": "Microsoft 365 / Windows",
+      "domain_count": 6,
+      "exported_domains": [
+        "login.microsoftonline.com",
+        "login.windows.net",
+        "login.microsoft.com",
+        "login.live.com",
+        "autologon.microsoftazuread-sso.com",
+        "device.login.microsoftonline.com"
+      ],
+      "pac_scopes": [],
+      "domains": {
+        "login.microsoftonline.com": {
+          "category": "auth",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges"
+          ],
+          "approved": false
+        },
+        "login.windows.net": {
+          "category": "auth",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges"
+          ],
+          "approved": false
+        },
+        "login.microsoft.com": {
+          "category": "auth",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges"
+          ],
+          "approved": false
+        },
+        "login.live.com": {
+          "category": "auth",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges"
+          ],
+          "approved": false
+        },
+        "autologon.microsoftazuread-sso.com": {
+          "category": "auth",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges"
+          ],
+          "approved": false
+        },
+        "device.login.microsoftonline.com": {
+          "category": "auth",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    },
+    "windows_update": {
+      "name": "Windows Update",
+      "institution_category": "infra_microsoft",
+      "section": "Microsoft 365 / Windows",
+      "domain_count": 3,
+      "exported_domains": [
+        "windowsupdate.com",
+        "download.windowsupdate.com",
+        "delivery.mp.microsoft.com"
+      ],
+      "pac_scopes": [
+        ".windowsupdate.com"
+      ],
+      "domains": {
+        "windowsupdate.com": {
+          "category": "update",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://learn.microsoft.com/en-us/windows/deployment/update/windows-update-overview"
+          ],
+          "approved": false
+        },
+        "download.windowsupdate.com": {
+          "category": "update",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://learn.microsoft.com/en-us/windows/deployment/update/windows-update-overview"
+          ],
+          "approved": false
+        },
+        "delivery.mp.microsoft.com": {
+          "category": "update",
+          "confidence": "HIGH",
+          "sources": [
+            "official_docs"
+          ],
+          "source_refs": [
+            "https://learn.microsoft.com/en-us/windows/deployment/update/windows-update-overview"
+          ],
+          "approved": false
+        }
+      },
+      "last_reviewed": "2026-07-17",
+      "reviewer": "migration",
+      "catalog_version": "2026.07.17"
+    }
+  },
+  "domain_index": {
+    "americanexpress.com": {
+      "confidence": "HIGH",
+      "institution_key": "amex",
+      "category": "portal"
+    },
+    "bancopan.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "bancopan",
+      "category": "portal"
+    },
+    "banrisul.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "banrisul",
+      "category": "portal"
+    },
+    "bb.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "bb",
+      "category": "portal"
+    },
+    "aapj.bb.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "bb",
+      "category": "internet_banking"
+    },
+    "bradesco.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "bradesco",
+      "category": "portal"
+    },
+    "btgpactual.com": {
+      "confidence": "HIGH",
+      "institution_key": "btgpactual",
+      "category": "portal"
+    },
+    "c6bank.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "c6bank",
+      "category": "portal"
+    },
+    "caixa.gov.br": {
+      "confidence": "HIGH",
+      "institution_key": "caixa",
+      "category": "portal"
+    },
+    "caixa.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "caixa",
+      "category": "portal"
+    },
+    "cielo.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "cielo",
+      "category": "portal"
+    },
+    "elo.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "elo",
+      "category": "portal"
+    },
+    "getnet.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "getnet",
+      "category": "portal"
+    },
+    "hipercard.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "hipercard",
+      "category": "portal"
+    },
+    "bancointer.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "inter",
+      "category": "portal"
+    },
+    "inter.co": {
+      "confidence": "HIGH",
+      "institution_key": "inter",
+      "category": "portal"
+    },
+    "itau.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "itau",
+      "category": "portal"
+    },
+    "itau-unibanco.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "itau",
+      "category": "portal"
+    },
+    "banklineplus.itau.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "itau",
+      "category": "internet_banking"
+    },
+    "mastercard.com": {
+      "confidence": "HIGH",
+      "institution_key": "mastercard",
+      "category": "portal"
+    },
+    "mastercard.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "mastercard",
+      "category": "portal"
+    },
+    "mercadopago.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "mercadopago",
+      "category": "portal"
+    },
+    "mercadolivre.com": {
+      "confidence": "HIGH",
+      "institution_key": "mercadopago",
+      "category": "related"
+    },
+    "neon.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "neon",
+      "category": "portal"
+    },
+    "next.me": {
+      "confidence": "HIGH",
+      "institution_key": "next",
+      "category": "portal"
+    },
+    "nubank.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "nubank",
+      "category": "portal"
+    },
+    "original.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "original",
+      "category": "portal"
+    },
+    "pagseguro.uol.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "pagbank",
+      "category": "portal"
+    },
+    "pagbank.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "pagbank",
+      "category": "portal"
+    },
+    "paypal.com": {
+      "confidence": "HIGH",
+      "institution_key": "paypal",
+      "category": "portal"
+    },
+    "paypalobjects.com": {
+      "confidence": "HIGH",
+      "institution_key": "paypal",
+      "category": "cdn"
+    },
+    "picpay.com": {
+      "confidence": "HIGH",
+      "institution_key": "picpay",
+      "category": "portal"
+    },
+    "safra.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "safra",
+      "category": "portal"
+    },
+    "santander.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "santander",
+      "category": "portal"
+    },
+    "sicoob.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "sicoob",
+      "category": "portal"
+    },
+    "sicredi.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "sicredi",
+      "category": "portal"
+    },
+    "stone.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "stone",
+      "category": "portal"
+    },
+    "visa.com": {
+      "confidence": "HIGH",
+      "institution_key": "visa",
+      "category": "portal"
+    },
+    "visa.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "visa",
+      "category": "portal"
+    },
+    "willbank.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "willbank",
+      "category": "portal"
+    },
+    "gov.br": {
+      "confidence": "HIGH",
+      "institution_key": "receita_federal",
+      "category": "portal"
+    },
+    "sso.acesso.gov.br": {
+      "confidence": "HIGH",
+      "institution_key": "govbr_login",
+      "category": "auth"
+    },
+    "acesso.gov.br": {
+      "confidence": "HIGH",
+      "institution_key": "govbr_login",
+      "category": "auth"
+    },
+    "meu.inss.gov.br": {
+      "confidence": "HIGH",
+      "institution_key": "inss",
+      "category": "servico"
+    },
+    "servicos.receita.fazenda.gov.br": {
+      "confidence": "HIGH",
+      "institution_key": "receita_federal",
+      "category": "servico"
+    },
+    "cav.receita.fazenda.gov.br": {
+      "confidence": "HIGH",
+      "institution_key": "receita_federal",
+      "category": "servico"
+    },
+    "correios.com.br": {
+      "confidence": "HIGH",
+      "institution_key": "correios",
+      "category": "portal"
+    },
+    "whatsapp.com": {
+      "confidence": "HIGH",
+      "institution_key": "whatsapp",
+      "category": "portal"
+    },
+    "whatsapp.net": {
+      "confidence": "HIGH",
+      "institution_key": "whatsapp",
+      "category": "infra"
+    },
+    "web.whatsapp.com": {
+      "confidence": "HIGH",
+      "institution_key": "whatsapp",
+      "category": "web_client"
+    },
+    "graph.facebook.com": {
+      "confidence": "HIGH",
+      "institution_key": "whatsapp",
+      "category": "api"
+    },
+    "lookaside.fbsbx.com": {
+      "confidence": "HIGH",
+      "institution_key": "whatsapp",
+      "category": "cdn"
+    },
+    "ocsp.digicert.com": {
+      "confidence": "HIGH",
+      "institution_key": "cert_validation",
+      "category": "ocsp"
+    },
+    "crl3.digicert.com": {
+      "confidence": "HIGH",
+      "institution_key": "cert_validation",
+      "category": "crl"
+    },
+    "crl4.digicert.com": {
+      "confidence": "HIGH",
+      "institution_key": "cert_validation",
+      "category": "crl"
+    },
+    "cacerts.digicert.com": {
+      "confidence": "HIGH",
+      "institution_key": "cert_validation",
+      "category": "ca"
+    },
+    "ocsp.globalsign.com": {
+      "confidence": "HIGH",
+      "institution_key": "cert_validation",
+      "category": "ocsp"
+    },
+    "crl.globalsign.com": {
+      "confidence": "HIGH",
+      "institution_key": "cert_validation",
+      "category": "crl"
+    },
+    "ocsp.msocsp.com": {
+      "confidence": "HIGH",
+      "institution_key": "cert_validation",
+      "category": "ocsp"
+    },
+    "crl.microsoft.com": {
+      "confidence": "HIGH",
+      "institution_key": "cert_validation",
+      "category": "crl"
+    },
+    "oneocsp.microsoft.com": {
+      "confidence": "HIGH",
+      "institution_key": "cert_validation",
+      "category": "ocsp"
+    },
+    "login.microsoftonline.com": {
+      "confidence": "HIGH",
+      "institution_key": "ms_login",
+      "category": "auth"
+    },
+    "login.windows.net": {
+      "confidence": "HIGH",
+      "institution_key": "ms_login",
+      "category": "auth"
+    },
+    "login.microsoft.com": {
+      "confidence": "HIGH",
+      "institution_key": "ms_login",
+      "category": "auth"
+    },
+    "login.live.com": {
+      "confidence": "HIGH",
+      "institution_key": "ms_login",
+      "category": "auth"
+    },
+    "autologon.microsoftazuread-sso.com": {
+      "confidence": "HIGH",
+      "institution_key": "ms_login",
+      "category": "auth"
+    },
+    "device.login.microsoftonline.com": {
+      "confidence": "HIGH",
+      "institution_key": "ms_login",
+      "category": "auth"
+    },
+    "windowsupdate.com": {
+      "confidence": "HIGH",
+      "institution_key": "windows_update",
+      "category": "update"
+    },
+    "download.windowsupdate.com": {
+      "confidence": "HIGH",
+      "institution_key": "windows_update",
+      "category": "update"
+    },
+    "delivery.mp.microsoft.com": {
+      "confidence": "HIGH",
+      "institution_key": "windows_update",
+      "category": "update"
+    }
+  }
+}
