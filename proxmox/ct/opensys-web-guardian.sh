@@ -78,8 +78,8 @@ load_defaults() {
 
 load_defaults
 
+OSTEMPLATE="${OSTEMPLATE:-}"
 HOSTNAME="${HOSTNAME:-opensys-wg}"
-OSTEMPLATE="${OSTEMPLATE:-debian-12-standard_12.7-1_amd64.tar.zst}"
 STORAGE="${STORAGE:-local-lvm}"
 TEMPLATE_STORAGE="${TEMPLATE_STORAGE:-local}"
 BRIDGE="${BRIDGE:-vmbr0}"
