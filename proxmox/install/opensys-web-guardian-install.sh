@@ -29,7 +29,7 @@ TZ="${TZ:-America/Sao_Paulo}"
 LICENSE_SERVER_URL="${LICENSE_SERVER_URL:-https://licensewg.opensys.com.br}"
 ADMIN_USER="${ADMIN_USER:-admin}"
 # P8 — nunca deixar CT em opensys-ui antigo (piloto 1.3.0). Bump com cada release canônica.
-OPENSYS_UI_MIN_VERSION="${OPENSYS_UI_MIN_VERSION:-1.4.10}"
+OPENSYS_UI_MIN_VERSION="${OPENSYS_UI_MIN_VERSION:-1.4.12}"
 
 die() { echo "ERRO: $*" >&2; exit 1; }
 info() { echo "→ $*" >&2; }
@@ -236,6 +236,15 @@ if [[ -f "${OPENSYS_ROOT}/app/appliance/sudoers/90-opensys-network" ]]; then
   if visudo -cf "${OPENSYS_ROOT}/app/appliance/sudoers/90-opensys-network" >/dev/null 2>&1; then
     install -m 440 "${OPENSYS_ROOT}/app/appliance/sudoers/90-opensys-network" /etc/sudoers.d/90-opensys-network
   fi
+fi
+if [[ -f "${OPENSYS_ROOT}/app/appliance/sudoers/90-opensys-logs" ]]; then
+  if visudo -cf "${OPENSYS_ROOT}/app/appliance/sudoers/90-opensys-logs" >/dev/null 2>&1; then
+    install -m 440 "${OPENSYS_ROOT}/app/appliance/sudoers/90-opensys-logs" /etc/sudoers.d/90-opensys-logs
+  fi
+fi
+# Retenção de logs do filtro + journal (evita encher o disco do CT)
+if [[ -x "${OPENSYS_ROOT}/bin/opensys-logs" ]]; then
+  "${OPENSYS_ROOT}/bin/opensys-logs" retention-ensure-defaults --json >/dev/null 2>&1 || true
 fi
 
 # --- 5. Policy seed (DEC-008) ---

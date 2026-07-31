@@ -31,7 +31,7 @@ sudo bash proxmox/ct/opensys-web-guardian.sh
 - Proxmox VE com `pct` / `pveam`
 - Internet no host (template Debian 12) e no CT (Buildkite apt + seeds públicos)
 - CT **privilegiado** (default do piloto)
-- Registry Buildkite com `opensys-ui` ≥ **1.4.9** (pin `OPENSYS_UI_MIN_VERSION` no install)
+- Registry Buildkite com `opensys-ui` ≥ **1.4.12** (pin `OPENSYS_UI_MIN_VERSION` no install)
 
 ## O que o bootstrap garante (bugs piloto)
 
@@ -42,4 +42,5 @@ sudo bash proxmox/ct/opensys-web-guardian.sh
 | P6 MSI agente | embutido no `.deb` `static/OpenWebFence.msi` |
 | P8 versão antiga | `OPENSYS_UI_MIN_VERSION` + checklist |
 | P10 phraselist / filter0 | reparo pós-seed + permissões `ipgroups` |
+| P12 retenção de logs | `opensys-logs retention-*` + UI Sistema→Logs (≥ 1.4.11) |
 | Checklist | falha o install se item crítico faltar |
