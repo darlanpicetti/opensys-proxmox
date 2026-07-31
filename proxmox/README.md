@@ -43,4 +43,5 @@ sudo bash proxmox/ct/opensys-web-guardian.sh
 | P8 versão antiga | `OPENSYS_UI_MIN_VERSION` + checklist |
 | P10 phraselist / filter0 | reparo pós-seed + permissões `ipgroups` |
 | P12 retenção de logs | `opensys-logs retention-*` + UI Sistema→Logs (≥ 1.4.11) |
+| AV ClamD socket | `LocalSocketGroup` / systemd `SocketGroup=e2guardian` (filtro sem `initgroups`) + checklist connect |
 | Checklist | falha o install se item crítico faltar |

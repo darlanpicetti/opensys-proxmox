@@ -212,6 +212,8 @@ usermod -aG opensys-scan opensys || true
 usermod -aG e2guardian opensys 2>/dev/null || true
 usermod -aG opensys-scan e2guardian 2>/dev/null || true
 usermod -aG opensys-scan clamav 2>/dev/null || true
+# clamd may chown LocalSocketGroup; keep clamav in e2guardian for non-socket-activation paths
+usermod -aG e2guardian clamav 2>/dev/null || true
 
 mkdir -p /var/e2g-scan-cache /var/log/e2guardian /var/log/clamav /run/clamav /etc/e2guardian/lists
 chown e2guardian:opensys-scan /var/e2g-scan-cache
@@ -462,11 +464,13 @@ done
 chown -R opensys:opensys "${OPENSYS_ROOT}/venv" "${OPENSYS_ROOT}/app" || true
 
 # --- 8. ClamAV socket group + drop-ins ---
+# e2guardian drops root→e2guardian without initgroups(); use primary group
+# on the socket (not opensys-scan) or ClamAV scans fail-open.
 info "ajustando ClamAV / systemd…"
 mkdir -p /etc/systemd/system/clamav-daemon.socket.d
 cat > /etc/systemd/system/clamav-daemon.socket.d/opensys.conf <<'EOF'
 [Socket]
-SocketGroup=opensys-scan
+SocketGroup=e2guardian
 SocketMode=0660
 EOF
 
@@ -477,7 +481,7 @@ if not path.is_file():
     raise SystemExit(0)
 replacements = {
     "LocalSocket": "/var/run/clamav/clamd.ctl",
-    "LocalSocketGroup": "opensys-scan",
+    "LocalSocketGroup": "e2guardian",
     "LocalSocketMode": "660",
 }
 lines = []
@@ -615,10 +619,31 @@ verify_pilot_accept() {
   else
     warn "opensys-ui NÃO está active"; fail=1
   fi
+  # AV: filtro dropa root→e2guardian sem initgroups — socket deve ser group e2guardian
+  local sock="/var/run/clamav/clamd.ctl"
+  local sock_grp
+  sock_grp="$(stat -c '%G' "$sock" 2>/dev/null || true)"
+  if [[ "$sock_grp" == "e2guardian" ]]; then
+    ok "AV socket group e2guardian"
+  else
+    warn "AV FAIL: ${sock} group=${sock_grp:-?} (esperado e2guardian)"; fail=1
+  fi
+  if [[ -S "$sock" ]] && runuser -u e2guardian -- python3 -c "
+import socket
+s = socket.socket(socket.AF_UNIX)
+s.settimeout(3)
+s.connect('${sock}')
+s.close()
+print('ok')
+" >/dev/null 2>&1; then
+    ok "AV ClamD acessível como e2guardian"
+  else
+    warn "AV FAIL: e2guardian não conecta em ${sock}"; fail=1
+  fi
   if [[ "$fail" -ne 0 ]]; then
     die "checklist pós-install falhou — corrija antes de entregar o CT ao cliente"
   fi
-  ok "checklist P1–P10 OK"
+  ok "checklist pós-install OK"
 }
 verify_pilot_accept
 
